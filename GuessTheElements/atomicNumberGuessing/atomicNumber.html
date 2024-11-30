@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+        <title>Atomic Number Guessing</title>
+    </head>
+    <body>
+        <h1 id="atomicNumber">Your Atomic Number is: 0</h1>
+
+        <form action="atomicNumberAnswer.html">
+            <label for="text">Element Name: </label>
+            <input id="input" type="text" name="name">
+
+            <input onclick="setInputValue()" type="submit" value="Submit">
+        </form>
+
+        <a href="/GuessTheElements/guessTheElement.html">
+            <button class="back">
+                Back
+            </button>
+        </a>
+
+        <script type="text/javascript">
+            let max_atomicNumber = 118;
+            let atomicNum = (Math.floor(Math.random() * max_atomicNumber)) + 1;
+
+            function randomAtomicNumber() {
+                document.getElementById("atomicNumber").innerHTML = "Your Atomic Number is: " + atomicNum;
+            }
+
+            function setInputValue() {
+                let userInput = document.getElementById('input').value;
+                localStorage.setItem("input", userInput)
+            }
+
+            randomAtomicNumber()
+            localStorage.setItem("atomicNumber", atomicNum);
+            
+        </script>
+
+    </body>
+</html>

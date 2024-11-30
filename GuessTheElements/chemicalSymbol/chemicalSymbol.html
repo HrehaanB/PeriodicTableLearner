@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+        <title>Chemical Symbol Guessing</title>
+    </head>
+    <body>
+        <h1 id="chemicalSymbol">Your Chemical Symbol is: H</h1>
+
+        <form action="chemicalSymbolAnswer.html">
+            <label for="text">Element Name: </label>
+            <input id="input" type="text" name="name">
+
+            <input onclick="setInputValue()" type="submit" value="Submit">
+        </form>
+
+        <a href="/GuessTheElements/guessTheElement.html">
+            <button class="back">
+                Back
+            </button>
+        </a>
+
+        <script type="text/javascript">
+            let max_atomicNumber = 118;
+            let atomicNum = (Math.floor(Math.random() * max_atomicNumber)) + 1;
+
+            let symbols = [
+                "H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne",
+                "Na", "Mg", "Al", "Si", "P", "S", "Cl", "Ar", "K", "Ca",
+                "Sc", "Ti", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu", "Zn",
+                "Ga", "Ge", "As", "Se", "Br", "Kr", "Rb", "Sr", "Y", "Zr",
+                "Nb", "Mo", "Tc", "Ru", "Rh", "Pd", "Ag", "Cd", "In", "Sn",
+                "Sb", "Te", "I", "Xe", "Cs", "Ba", "La", "Ce", "Pr", "Nd",
+                "Pm", "Sm", "Eu", "Gd", "Tb", "Dy", "Ho", "Er", "Tm", "Yb",
+                "Lu", "Hf", "Ta", "W", "Re", "Os", "Ir", "Pt", "Au", "Hg",
+                "Tl", "Pb", "Bi", "Po", "At", "Rn", "Fr", "Ra", "Ac", "Th",
+                "Pa", "U", "Np", "Pu", "Am", "Cm", "Bk", "Cf", "Es", "Fm",
+                "Md", "No", "Lr", "Rf", "Db", "Sg", "Bh", "Hs", "Mt", "Ds",
+                "Rg", "Cn", "Nh", "Fl", "Mc", "Lv", "Ts", "Og"
+            ];
+
+            function randomChemicalSymbol() {
+                document.getElementById("chemicalSymbol").innerHTML = "Your Chemical Symbol is: " + symbols[atomicNum - 1];
+            }
+
+            function setInputValue() {
+                let userInput = document.getElementById('input').value;
+                localStorage.setItem("input", userInput)
+            }
+
+            randomChemicalSymbol()
+            localStorage.setItem("atomicNum", atomicNum);
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+html {
+    background-color: rgb(32, 36, 49);
+    color: white;
+    text-align: center;
+    font-size: x-large;
+}
+table, th, td {
+    border: 1px solid white;
+    margin: 20px auto;
+}
+th, td {
+    padding: 15px;
+}
+button {
+    margin: 10px;
+    font-size: large;
+}
+.back {
+    background-color: rgb(162, 90, 230);
+    color: white;
+    font-size: larger;
+}
+.big-button {
+    font-size: xx-large;
+}
